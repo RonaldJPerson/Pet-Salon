@@ -8,7 +8,9 @@
     <link href="styles/style.css" rel="stylesheet">
     <title>Pet Registration - Puurfect Pet Salon</title>
 </head>
-<body>
+
+<body class="registration-page">
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Puurfect Pet Salon</a>
@@ -18,10 +20,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link " aria-current="page" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="registration.html">Registration</a>
+          <a class="nav-link active" href="registration.html">Registration</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="services.html">Services</a>
@@ -38,6 +40,75 @@
     <section>
       <h2>Registered Pets</h2>
       <div id="petNames"></div>
+    </section>
+
+    <section class="registration-form-section">
+      <h2>Registration</h2>
+      
+      <form class="row g-3">
+        
+        <div class="col-md-6">
+          <label for="petName" class="form-label">Pet Name</label>
+          <input type="text" class="form-control" id="petName" placeholder="Enter Pet Name" required>
+        </div>
+        <div class="col-md-6">
+          <label for="petAge" class="form-label">Age</label>
+          <input type="number" class="form-control" id="petAge" placeholder="Enter Pet Age" required>
+        </div>
+        <div class="col-md-6">
+          <label for="petBreed" class="form-label">Breed</label>
+          <input type="text" class="form-control" id="petBreed" placeholder="Enter Pet Breed" required>
+        </div>
+        <div class="col-md-6">
+          <label for="petGender" class="form-label">Gender</label>
+          <select class="form-select" id="petGender" required>
+            <option selected disabled value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="petService" class="form-label">Service</label>
+          <select class="form-select" id="petService" required>
+            <option selected disabled value="">Select Service</option>
+            <option value="Grooming">Grooming</option>
+            <option value="Bath">Bath</option>
+            <option value="Nail Trim">Nail Trim</option>
+            <option value="Full Grooming">Full Grooming</option>
+            <option value="Bath and Trim">Bath and Trim</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary m-1" type="submit" onclick="registerPet(event)">Register</button>
+          <button class="btn btn-secondary m-1" type="reset">Reset</button>
+        </div>
+      </form>
+    
+    </section>
+
+    <section class="pet-table-section">
+      <h2>Registered Pets</h2>
+     
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th >#</th>
+              <th >Pet Name</th>
+              <th >Age</th>
+              <th >Breed</th>
+              <th >Gender</th>
+              <th >Service</th>
+              <th ></th>
+            </tr>
+          </thead>
+
+          <tbody id="registrationTable">
+         
+          </tbody>
+        </table>
+      </div>
+
     </section>
 
     <section class="pet-gallery">
