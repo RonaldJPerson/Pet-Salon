@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+    padding-top: 72px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '🐾';
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    font-size: 80px;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body::after {
+    content: '🐾';
+    position: fixed;
+    bottom: 15%;
+    right: 8%;
+    font-size: 120px;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+    transform: rotate(45deg);
+}
+
+section, .navbar {
+    position: relative;
+    z-index: 1;
+}
+
+
+.navbar {
+    background: linear-gradient(90deg, #1e5f74 0%, #16455e 100%) !important;
+    box-shadow: 0 4px 20px rgba(30, 95, 116, 0.3);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -8px;
+    left: 50%;
+    background-color: #d4a574;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+.container-main {
+    padding: 40px 0;
+}
+
+
+h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e5f74 0%, #16455e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 40px 0;
+    letter-spacing: 2px;
+}
+
+
+section {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(30, 95, 116, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 30px auto !important;
+    max-width: 700px;
+    padding: 50px !important;
+    border: 2px solid rgba(30, 95, 116, 0.1);
+}
+
+section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 70px rgba(30, 95, 116, 0.25);
+    border: 2px solid rgba(30, 95, 116, 0.3);
+}
+
+h2 {
+    color: #1e5f74;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #1e5f74 0%, #d4a574 100%);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+#petNames ol {
+    list-style: none;
+    counter-reset: item;
+    padding: 0;
+}
+
+#petNames ol li {
+    counter-increment: item;
+    margin-bottom: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #16455e;
+    position: relative;
+    transition: all 0.2s ease;
+    padding-left: 35px;
+}
+
+#petNames ol li:last-child {
+    border-bottom: none;
+}
+
+#petNames ol li:hover {
+    color: #1e5f74;
+    padding-left: 40px;
+}
+
+#petNames ol li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #d4a574;
+}
+
+#petNames:empty::before {
+    content: 'No pets registered yet!';
+    display: block;
+    text-align: center;
+    color: #999;
+    font-size: 1.2rem;
+    padding: 30px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #fff;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #1e5f74 0%, #16455e 100%);
+    margin-top: 60px;
+    font-weight: 500;
+    box-shadow: 0 -4px 20px rgba(30, 95, 116, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Pet Gallery Section */
+.pet-gallery {
+    max-width: 900px;
+    margin: 40px auto !important;
+    padding: 40px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(30, 95, 116, 0.15);
+    border: 2px solid rgba(30, 95, 116, 0.1);
+}
+
+.gallery-title {
+    color: #1e5f74;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.gallery-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #1e5f74 0%, #d4a574 100%);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(30, 95, 116, 0.15);
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(30, 95, 116, 0.25);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-card-content {
+    padding: 15px;
+    background: #f8fafb;
+    border-top: 3px solid #d4a574;
+}
+
+.gallery-card-content p {
+    margin: 0;
+    color: #16455e;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        margin: 20px !important;
+        padding: 30px !important;
+    }
+
+    #petNames ol li {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+        padding-left: 55px;
+    }
+
+    #petNames ol li::before {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        left: 8px;
+    }
+
+    .nav-link {
+        margin: 0 10px;
+        font-size: 1rem;
+    }
+}
